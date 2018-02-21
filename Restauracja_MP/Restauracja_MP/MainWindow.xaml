@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restauracja_MP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0" Name="background1" Stretch="UniformToFill" Source="Resources/Images/background1.png"/>
+        <Button Grid.Column="0" Name="order_btn" Content="Zamów" Margin="100,450,100,60" Click="Button_Click"/>
+
+        <Image Grid.Column="1" Name="background2" Stretch="UniformToFill" Source="Resources/Images/background2.jpg"/>
+        <Button Grid.Column="1" x:Name="history_btn" Content="Historia Zamówień" Margin="100,450,100,60" Click="Button_Click_1"/>
+
+
     </Grid>
 </Window>
