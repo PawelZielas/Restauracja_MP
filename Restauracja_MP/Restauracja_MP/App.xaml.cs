@@ -13,5 +13,8 @@ namespace Restauracja_MP
     /// </summary>
     public partial class App : Application
     {
+
     }
+
 }
+
