@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restauracja_MP"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -12,12 +13,22 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0" Name="background1" Stretch="UniformToFill" Source="Resources/Images/background1.png"/>
-        <Button Grid.Column="0" Name="order_btn" Content="Zamów" Margin="100,450,100,60" Click="Button_Click"/>
+        <Button Grid.Column="0" Name="order_btn" Click="Order_btn_Click">
+            <Grid>
+                <Image Grid.Column="0" Stretch="UniformToFill" Source="Resources/Images/background1.png"/>
+                <Label Margin="138,393,106.6,118" FontSize="30">
+                    Zamów
+                </Label>
+            </Grid>
+        </Button>
 
-        <Image Grid.Column="1" Name="background2" Stretch="UniformToFill" Source="Resources/Images/background2.jpg"/>
-        <Button Grid.Column="1" x:Name="history_btn" Content="Historia Zamówień" Margin="100,450,100,60" Click="Button_Click_1"/>
-
-
+        <Button Grid.Column="1" x:Name="history_btn" Click="History_btn_Click">
+            <Grid>
+                <Image Grid.Column="1" Stretch="UniformToFill" Source="Resources/Images/background2.jpg"/>
+                <Label Margin="79,393,40.6,118" FontSize="30">
+                    Historia zamowien
+                </Label>
+            </Grid>
+        </Button>
     </Grid>
 </Window>
