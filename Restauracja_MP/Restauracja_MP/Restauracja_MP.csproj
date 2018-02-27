@@ -74,8 +74,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CompleteMenu.cs" />
-    <Compile Include="Dish.cs" />
+    <Compile Include="Resources\Data\CompleteMenu.cs" />
+    <Compile Include="Resources\Data\Dish.cs" />
     <Compile Include="History_window.xaml.cs">
       <DependentUpon>History_window.xaml</DependentUpon>
     </Compile>
@@ -89,7 +89,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Order.cs" />
+    <Compile Include="Resources\Data\Order.cs" />
     <Compile Include="Order_window.xaml.cs">
       <DependentUpon>Order_window.xaml</DependentUpon>
     </Compile>

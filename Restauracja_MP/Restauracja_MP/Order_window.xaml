@@ -20,7 +20,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="accept_order_btn" Grid.Column="0" Grid.Row="0" Margin="10,10,259.6,10.4" Content="Zamów" Width="120" Click="OpenAcceptWindow"/>
+            <Button x:Name="AcceptOrderButton" Grid.Column="0" Grid.Row="0" Margin="10,10,259.6,10.4" Content="Zamów" Width="120" Click="OpenAcceptWindow"/>
 
             <Label Grid.Column="1" Grid.Row="0" Margin="200,7,78,9" RenderTransformOrigin="0.722,0.44">
                 Łącznie do zapłaty:
@@ -31,35 +31,35 @@
             <!--   First List - menu -->
             <StackPanel Grid.Column="0" Grid.Row="1">
                 <Label Grid.Column="0" Grid.Row="1" Content="Menu:"/>
-                <ListView x:Name="menuList" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding allDishes}">
+                <ListView x:Name="MenuList" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding allDishes}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding Type}" />
-                            <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Price}" />
+                            <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding type}" />
+                            <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding name}" />
+                            <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding price}" />
 
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button x:Name="add_dish_btn" Content="Dodaj" Grid.Column="0" Grid.Row="1" Click="add_dish_btn_Click"/>
+                <Button x:Name="AddDishButton" Content="Dodaj" Grid.Column="0" Grid.Row="1" Click="AddDishButtonClick"/>
             </StackPanel>
 
             <!--   Second List current order   -->
             <StackPanel Grid.Column="1" Grid.Row="1">
                 <Label Grid.Column="1" Grid.Row="1" Content="Twoje zamwienie:"/>
-                <ListView x:Name="orderList" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding allDishes}" Canvas.Top="26" Width="390" VerticalAlignment="Stretch">
+                <ListView x:Name="OrderList" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding allDishes}" Canvas.Top="26" Width="390" VerticalAlignment="Stretch">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding Type}" />
-                            <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Price}" />
+                            <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding type}" />
+                            <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding name}" />
+                            <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding price}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button x:Name="rem_dish_btn" Content="Usun" Grid.Column="0" Grid.Row="1" Click="rem_dish_btn_Click" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.621,25.35" Canvas.Top="50" Width="390"/>
+                <Button x:Name="RemoveDishButton" Content="Usun" Grid.Column="0" Grid.Row="1" Click="RemoveDishButtonClick" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.621,25.35" Canvas.Top="50" Width="390"/>
             </StackPanel>
             <!-- Back btn -->
-            <Button Grid.Column="1" Grid.Row="2" Content="Wstecz" Margin="260,6,10,10" Click="Back_btn_Click" Width="120"/>
+            <Button Grid.Column="1" Grid.Row="2" Content="Wstecz" Margin="260,6,10,10" Click="BackButtonClick" Width="120"/>
             <!-- test btn -->
         </Grid>
     </Border>

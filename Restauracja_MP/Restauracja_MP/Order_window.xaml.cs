@@ -28,13 +28,13 @@ namespace Restauracja_MP
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            foreach (Dish item in menu.AllDishes)
+            foreach (Dish item in menu.allDishes)
             {
-                menuList.Items.Add(item);
+                MenuList.Items.Add(item);
             }
         }
 
-        private void Back_btn_Click(object sender, RoutedEventArgs e) //back_btn_click
+        private void BackButtonClick(object sender, RoutedEventArgs e) //back_btn_click
         {
             this.Close();
             App.Current.MainWindow.Show();
@@ -48,23 +48,23 @@ namespace Restauracja_MP
         }
 
         // remove from order
-        private void rem_dish_btn_Click(object sender, RoutedEventArgs e)
+        private void RemoveDishButtonClick(object sender, RoutedEventArgs e)
         {
            
-                if(orderList.SelectedItems.Count != 0);
+                if(OrderList.SelectedItems.Count != 0);
                 {
-                    orderList.Items.RemoveAt(orderList.SelectedIndex);
-                    myOrder.RemoveDishFromOrder((Dish)menuList.SelectedItem);
+                    OrderList.Items.RemoveAt(OrderList.SelectedIndex);
+                    myOrder.RemoveDishFromOrder((Dish)MenuList.SelectedItem);
                     TotalPriceBox.Text = myOrder.CalculateOrderCost() + "Pln";
                 }
             
         }
 
         // add to order
-        private void add_dish_btn_Click(object sender, RoutedEventArgs e)
+        private void AddDishButtonClick(object sender, RoutedEventArgs e)
         {
-            orderList.Items.Add(menuList.SelectedItem);
-            myOrder.AddDishToOrder((Dish)menuList.SelectedItem);
+            OrderList.Items.Add(MenuList.SelectedItem);
+            myOrder.AddDishToOrder((Dish)MenuList.SelectedItem);
             TotalPriceBox.Text = myOrder.CalculateOrderCost()+"Pln";
         }
     }
