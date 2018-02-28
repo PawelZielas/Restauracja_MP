@@ -24,10 +24,10 @@ namespace Restauracja_MP
     /// </summary>
     public partial class Accept_Order_Window : Window
     {
-       
+     
+        public static DateTime now { get; }
         public void Connect()
         {
-            MySqlCommand insertOrder;
             string connectionString = "server=localhost;user=root;database=restauracja;password=";
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -36,16 +36,18 @@ namespace Restauracja_MP
                 connection.Open();
                 // Perform database operations
 
-                string sql = "INSERT INTO orders (comment,email,price) VALUES ({0})";
+                string sql = $"INSERT INTO orders (comment,email,price) VALUES ('{ CommentField.Text}','{EmailField.Text}','200')";
+                MessageBox.Show($"próbujesz to wykonać:{sql}");
+                
                 MySqlCommand command = new MySqlCommand(sql,connection);
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                MessageBox.Show("Błąd połączenia.");
             }
             connection.Close();
-            MessageBox.Show("Done.");
+            MessageBox.Show("Wykonano zapytanie.");
         }
     
 
