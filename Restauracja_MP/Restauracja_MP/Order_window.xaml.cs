@@ -42,9 +42,9 @@ namespace Restauracja_MP
 
         private void OpenAcceptWindow(object sender, RoutedEventArgs e)
         {
-            Accept_Order_Window AcceptWindow = new Accept_Order_Window();
-            AcceptWindow.DataContext = this;
-            AcceptWindow.ShowDialog();
+                Accept_Order_Window AcceptWindow = new Accept_Order_Window();
+                AcceptWindow.DataContext = this;
+                AcceptWindow.ShowDialog();
         }
 
         // remove from order
@@ -64,8 +64,8 @@ namespace Restauracja_MP
         private void AddDishButtonClick(object sender, RoutedEventArgs e)
         {
             OrderList.Items.Add(MenuList.SelectedItem);
-            myOrder.AddDishToOrder((Dish)MenuList.SelectedItem);
-            TotalPriceBox.Text = myOrder.CalculateOrderCost()+"Pln";
+            this.myOrder.AddDishToOrder((Dish)MenuList.SelectedItem);
+            TotalPriceBox.Text = this.myOrder.CalculateOrderCost()+"Pln";
         }
     }
 }

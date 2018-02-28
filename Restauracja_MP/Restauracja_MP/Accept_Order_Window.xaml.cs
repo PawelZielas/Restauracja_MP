@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using MySql.Data;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace Restauracja_MP
 {
@@ -21,8 +24,31 @@ namespace Restauracja_MP
     /// </summary>
     public partial class Accept_Order_Window : Window
     {
-        Order myOrder = new Order();
-        
+       
+        public void Connect()
+        {
+            MySqlCommand insertOrder;
+            string connectionString = "server=localhost;user=root;database=restauracja;password=";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                MessageBox.Show("Connecting to MySQL...");
+                connection.Open();
+                // Perform database operations
+
+                string sql = "INSERT INTO orders (comment,email,price) VALUES ({0})";
+                MySqlCommand command = new MySqlCommand(sql,connection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show("Błąd połączenia.");
+            }
+            connection.Close();
+            MessageBox.Show("Done.");
+        }
+    
+
         public void SendEmail (string email, string comment)
         {
             SmtpClient client = new SmtpClient();
@@ -45,11 +71,6 @@ namespace Restauracja_MP
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            foreach (Dish item in this.myOrder.dishList)
-            {
-                this.acceptList.Items.Add(item);
-            }
         }
 
         public static bool IsValidEmail(string email)
@@ -60,14 +81,26 @@ namespace Restauracja_MP
 
         private void SendConfirmationEmail(object sender, RoutedEventArgs e)
         {
+            Connect();
+
+            /*
             if (IsValidEmail(EmailField.Text) == true )
             {
                 if (CommentField.Text == "Wpisz tutaj swoje uwagi")
                     CommentField.Text = "Brak uwag.";
+                Connect();
                 SendEmail(EmailField.Text, CommentField.Text);
-                MessageBox.Show("Wysłano potwierdzenie na Podany Adres. Dziękujemy! :)","Zamówienie potwierdzone");
+
+                MessageBox.Show("Wysłano potwierdzenie pod Adres:"+ EmailField.Text +". Dziękujemy! :)","Zamówienie potwierdzone");
                 this.Close();
-            } else MessageBox.Show("Format adresu email jest niepoprawny. Sprawdz swoj adres i sprobuj ponownie","Blad email");
+            } else MessageBox.Show("Format adresu email jest niepoprawny. Sprawdz swoj adres i sprobuj ponownie","Bledny email");
+            */
+     
+        }
+
+        private void ChangeOrderButton(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

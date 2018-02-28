@@ -6,28 +6,29 @@
         xmlns:local="clr-namespace:Restauracja_MP"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Akceptacja zamowienia" Height="300" Width="300">
+        Title="Akceptacja zamowienia" Height="450" Width="400">
     <Border Margin="20">
-        <Canvas  HorizontalAlignment="Center" Margin="22,0,21.6,0.4" Width="210">
-            <Label Content="Twoje zamowienie:"/>
-            <ListView x:Name="acceptList" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding dishList}" Canvas.Top="26" Width="210" VerticalAlignment="Stretch">
+        <Canvas  HorizontalAlignment="Center"  Width="330">
+            <Label Content="Twoje zamowienie:" HorizontalAlignment="Center"/>
+            <ListView x:Name="acceptList" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding allDishes}" Canvas.Top="26" Width="331" VerticalAlignment="Stretch">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding Type}" />
-                        <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Price}" />
+                        <GridViewColumn Header="Potrawa" DisplayMemberBinding="{Binding type}" />
+                        <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding name}" />
+                        <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding price}" />
                     </GridView>
                 </ListView.View>
             </ListView>
             <Separator/>
-            <Label Content="Uwagi:" Canvas.Top="95" HorizontalAlignment="Left"/>
-            <TextBox x:Name="CommentField" TextWrapping="Wrap" Text="Wpisz tutaj swoje uwagi" Canvas.Top="121" Height="42" Width="210" RenderTransformOrigin="0.63,-4.819"/>
+            <Label Content="Uwagi:" Canvas.Top="195" HorizontalAlignment="Left" Canvas.Left="1"/>
+            <TextBox x:Name="CommentField" TextWrapping="Wrap" Text="Wpisz tutaj swoje uwagi" Canvas.Top="223" Height="42" Width="210" RenderTransformOrigin="0.63,-4.819"/>
             <Separator/>
-            <Label Content="Adres Email:" Canvas.Top="163" Height="25" RenderTransformOrigin="1.208,-0.404" />
-            <TextBox x:Name="EmailField" TextWrapping="Wrap" Text="Wpisz tutaj swój adres" Canvas.Top="188"/>
+            <Label Content="Adres Email:" Canvas.Top="263" Height="25" RenderTransformOrigin="1.208,-0.404" Canvas.Left="2" />
+            <TextBox x:Name="EmailField" TextWrapping="Wrap" Text="Wpisz tutaj swój adres" Canvas.Top="295" RenderTransformOrigin="0.491,0.496" Canvas.Left="2"/>
             <Separator/>
 
-            <Button x:Name="send_email_btn" Click="SendConfirmationEmail" Canvas.Left="83" Canvas.Top="209" RenderTransformOrigin="0.473,1.935" >Zamów</Button>
+            <Button x:Name="send_email_btn" Click="SendConfirmationEmail" Canvas.Left="120" Canvas.Top="323" RenderTransformOrigin="0.473,1.935" Height="22" Width="61" >Zamów</Button>
+            <Button x:Name="BackButton" Content="Powrot" Click="ChangeOrderButton" Canvas.Left="286" Canvas.Top="359"/>
         </Canvas>
     </Border>
 </Window>

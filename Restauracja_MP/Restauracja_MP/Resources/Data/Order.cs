@@ -7,7 +7,7 @@ namespace Restauracja_MP
     {
         #region Variables 
 
-        public List<Dish> dishList
+        private List<Dish> dishList
         {
             get
             {
@@ -18,7 +18,7 @@ namespace Restauracja_MP
                 _dishList = value;
             }
         }
-        private List<Dish> _dishList;
+        public List<Dish> _dishList;
 
         public string comment
         {

@@ -59,7 +59,7 @@
                 <Button x:Name="RemoveDishButton" Content="Usun" Grid.Column="0" Grid.Row="1" Click="RemoveDishButtonClick" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.621,25.35" Canvas.Top="50" Width="390"/>
             </StackPanel>
             <!-- Back btn -->
-            <Button Grid.Column="1" Grid.Row="2" Content="Wstecz" Margin="260,6,10,10" Click="BackButtonClick" Width="120"/>
+            <Button Grid.Column="1" Grid.Row="2" Content="Wstecz" Margin="241.4,7.2,29,8" Click="BackButtonClick" Width="120"/>
             <!-- test btn -->
         </Grid>
     </Border>
